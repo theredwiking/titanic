@@ -31,7 +31,7 @@ class Gamemode extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => Players(mode: 'party')));
+                      builder: (context) => const Players(mode: 'party')));
             },
             child: const Text('Party',
                 style: TextStyle(
@@ -44,7 +44,12 @@ class Gamemode extends StatelessWidget {
             style: TextButton.styleFrom(
                 backgroundColor: const Color(0xFFFCECC9),
                 minimumSize: const Size(263, 45)),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const Players(mode: 'birthday')));
+            },
             child: const Text('Birthday',
                 style: TextStyle(
                     fontSize: 24,
@@ -57,7 +62,12 @@ class Gamemode extends StatelessWidget {
               backgroundColor: const Color(0xFFFCECC9),
               minimumSize: const Size(263, 45),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const Players(mode: 'christmas')));
+            },
             child: const Text('Christmas',
                 style: TextStyle(
                     fontSize: 24,

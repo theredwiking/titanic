@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:titanic/database.dart';
+import 'package:titanic/db/questions.dart';
 
 class Players extends StatelessWidget {
-  Players({super.key, required this.mode});
   final String mode;
-  var questions = Questions();
+  const Players({super.key, required this.mode});
 
   @override
   Widget build(BuildContext context) {
