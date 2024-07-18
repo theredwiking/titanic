@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:titanic/database.dart';
 
 class Players extends StatelessWidget {
-  const Players({super.key, required this.mode});
+  Players({super.key, required this.mode});
   final String mode;
+  var questions = Questions();
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,7 @@ class Players extends StatelessWidget {
           child: Column(
         children: <Widget>[
           const SizedBox(
-            height: 50,
+            height: 60,
           ),
           const Align(
             alignment: Alignment.topCenter,
@@ -31,12 +33,7 @@ class Players extends StatelessWidget {
             style: TextButton.styleFrom(
                 backgroundColor: const Color(0xFFFCECC9),
                 minimumSize: const Size(263, 45)),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const Players(mode: 'party')));
-            },
+            onPressed: () {},
             child: const Text('Add player',
                 style: TextStyle(
                     fontSize: 24,

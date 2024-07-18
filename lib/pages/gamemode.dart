@@ -31,7 +31,7 @@ class Gamemode extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const Players(mode: 'party')));
+                      builder: (context) => Players(mode: 'party')));
             },
             child: const Text('Party',
                 style: TextStyle(
