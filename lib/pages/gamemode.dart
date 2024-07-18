@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:titanic/pages/players.dart';
 
-class Gamemode extends StatelessWidget {
-  const Gamemode({super.key});
+class GamemodePage extends StatelessWidget {
+  const GamemodePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,7 @@ class Gamemode extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const Players(mode: 'party')));
+                      builder: (context) => const PlayersPage(mode: 'party')));
             },
             child: const Text('Party',
                 style: TextStyle(
@@ -48,7 +48,7 @@ class Gamemode extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const Players(mode: 'birthday')));
+                      builder: (context) => const PlayersPage(mode: 'birthday')));
             },
             child: const Text('Birthday',
                 style: TextStyle(
@@ -66,7 +66,7 @@ class Gamemode extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const Players(mode: 'christmas')));
+                      builder: (context) => const PlayersPage(mode: 'christmas')));
             },
             child: const Text('Christmas',
                 style: TextStyle(

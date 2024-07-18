@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:titanic/db/database.dart';
 import 'pages/gamemode.dart';
 
 void main() {
@@ -58,6 +59,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    DB database = DB();
+    database.copyDb('questions_english.db');
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -99,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   minimumSize: const Size(263, 88)),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Gamemode()));
+                    MaterialPageRoute(builder: (context) => const GamemodePage()));
               },
               child: const Text('Choose gamemode',
                   style: TextStyle(

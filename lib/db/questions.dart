@@ -18,13 +18,17 @@ class Question {
   String toString() {
     return 'Question{id: $id, question: $question}';
   }
+
+  String toQuest() {
+    return question;
+  }
 }
 
 class Questions {
   final String pack;
   late final Future<Database> database;
   Questions({required this.pack}) {
-    database = DB().connectDb(pack);
+    database = DB().connectDb('questions_english.db');
   }
 
   Future<void> insertQuestion(Question question, String pack) async {
@@ -33,7 +37,7 @@ class Questions {
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
-  Future<List<Question>> allQuestions() async {
+  Future<List<Question>> packQuestions() async {
     final db = await database;
 
     final List<Map<String, Object?>> questionMaps = await db.query(pack);

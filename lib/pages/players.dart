@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:titanic/pages/question.dart';
 
-class Players extends StatefulWidget {
+class PlayersPage extends StatefulWidget {
   final String mode;
-  const Players({super.key, required this.mode});
+  const PlayersPage({super.key, required this.mode});
 
   @override
-  State createState() => _State();
+  State createState() => _State(mode: mode);
 }
 
-class _State extends State<Players> {
-  final List<String> _players = [];
+class _State extends State<PlayersPage> {
+  final String mode;
+  final List<String> players = [];
   final TextEditingController nameCtl = TextEditingController();
+  _State({required this.mode});
 
   void _addPlayer(String name) {
-    _players.add(name);
+    players.add(name);
   }
 
   @override
@@ -93,26 +96,38 @@ class _State extends State<Players> {
           ),
           Expanded(
               child: ListView.builder(
-                  itemCount: _players.length,
+                  itemCount: players.length,
                   itemBuilder: (BuildContext ctxt, int index) {
-                    return Center(child: Text(_players[index],
-                        style: const TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)));
+                    return Center(
+                        child: Text(players[index],
+                            style: const TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white)));
                   })),
           TextButton(
             style: TextButton.styleFrom(
                 backgroundColor: const Color(0xFFFCECC9),
                 minimumSize: const Size(263, 45)),
-            onPressed: () {},
+            onPressed: () {
+              if (players.length >= 2) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            //TODO: Change harccode mode to dynamic
+                            QuestionPage(mode: 'party', players: players)));
+              }
+            },
             child: const Text('Complete',
                 style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.black)),
           ),
-          const SizedBox(height: 20,)
+          const SizedBox(
+            height: 20,
+          )
         ],
       )),
     );
