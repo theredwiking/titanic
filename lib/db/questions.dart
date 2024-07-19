@@ -31,7 +31,7 @@ class Questions {
     database = DB().connectDb('questions_english.db');
   }
 
-  Future<void> insertQuestion(Question question, String pack) async {
+  Future<void> insertQuestion(Question question) async {
     final db = await database;
     await db.insert(pack, question.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:titanic/db/questions.dart';
 import 'package:titanic/pages/question.dart';
 
 class AddQuestionPage extends StatefulWidget {
@@ -12,10 +13,14 @@ class AddQuestionPage extends StatefulWidget {
 class _State extends State<AddQuestionPage> {
   final String mode;
   final List<String> customQuestions = [];
+  late final Questions pack;
   final TextEditingController questionCtl = TextEditingController();
-  _State({required this.mode});
+  _State({required this.mode}) {
+    pack = Questions(pack: mode);
+  }
 
-  void _addPlayer(String question) {
+  Future _addQuestion(String question) async  {
+    await pack.insertQuestion(Question(question: question, custom: 1));
     customQuestions.add(question);
   }
 
@@ -73,8 +78,8 @@ class _State extends State<AddQuestionPage> {
                           actions: [
                             ElevatedButton(
                                 child: const Text("Add"),
-                                onPressed: () {
-                                  _addPlayer(questionCtl.text);
+                                onPressed: () async {
+                                  await _addQuestion(questionCtl.text);
                                   questionCtl.clear();
                                   setState(() {});
                                   Navigator.pop(context);
