@@ -21,21 +21,22 @@ class _State extends State<QuestionPage> {
   final String mode;
   final List<String> players;
   late List<Question> questions = [];
+  late bool fetched = false;
+  late final Questions pack;
   _State({required this.mode, required this.players}) {
-    final Questions pack = Questions(pack: mode);
-    () async => {questions = await pack.packQuestions(), print(questions.length)};
-    print(questions.length);
+    pack = Questions(pack: mode);
   }
   late String _question = 'To start click next';
 
   void selectQuestion() {
-    print(questions.length);
     if (questions.length >= 2) {
       Random random = Random();
       int questIdx = random.nextInt(questions.length);
       _question = questions[questIdx].toQuest();
+      questions.removeAt(questIdx);
     } else if (questions.length == 1) {
       _question = questions[0].toQuest();
+      questions.removeAt(0);
     } else {
       _question = 'No more questions, get an life';
     }
@@ -81,7 +82,11 @@ class _State extends State<QuestionPage> {
               style: TextButton.styleFrom(
                   backgroundColor: const Color(0xFFFCECC9),
                   minimumSize: const Size(263, 45)),
-              onPressed: () {
+              onPressed: () async {
+                if (!fetched) {
+                  questions = await pack.packQuestions();
+                  fetched = true;
+                }
                 selectQuestion();
               },
               child: const Text('Next',
