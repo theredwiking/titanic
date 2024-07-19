@@ -2,21 +2,21 @@ import 'package:titanic/db/database.dart';
 import 'package:sqflite/sqflite.dart';
 
 class Question {
-  final int id;
   final String question;
+  final int custom;
 
-  const Question({required this.id, required this.question});
+  const Question({required this.question, required this.custom});
 
   Map<String, Object?> toMap() {
     return {
-      'id': id,
       'question': question,
+      'custom': custom
     };
   }
 
   @override
   String toString() {
-    return 'Question{id: $id, question: $question}';
+    return 'Question{question: $question, custom: $custom}';
   }
 
   String toQuest() {
@@ -44,10 +44,10 @@ class Questions {
 
     return [
       for (final {
-            'id': id as int,
             'question': question as String,
+            'custom': custom as int,
           } in questionMaps)
-        Question(id: id, question: question),
+        Question(question: question, custom: custom),
     ];
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:titanic/pages/players.dart';
+import 'package:titanic/pages/addQuestion.dart';
 
-class GamemodePage extends StatelessWidget {
-  const GamemodePage({super.key});
+class QuestionPacksPage extends StatelessWidget {
+  const QuestionPacksPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,12 +10,12 @@ class GamemodePage extends StatelessWidget {
           child: Column(
         children: <Widget>[
           const SizedBox(
-            height: 60,
+            height: 70,
           ),
           const Align(
             alignment: Alignment.topCenter,
             child: Text(
-              'Which gamemode',
+              'Questions packs',
               style: TextStyle(fontSize: 36, color: Color(0xFFFCB0B3)),
             ),
           ),
@@ -31,7 +31,7 @@ class GamemodePage extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const PlayersPage(mode: 'party')));
+                      builder: (context) => const AddQuestionPage(mode: 'party')));
             },
             child: const Text('Party',
                 style: TextStyle(
@@ -48,7 +48,8 @@ class GamemodePage extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const PlayersPage(mode: 'birthday')));
+                      builder: (context) =>
+                          const AddQuestionPage(mode: 'birthday')));
             },
             child: const Text('Birthday',
                 style: TextStyle(
@@ -66,7 +67,8 @@ class GamemodePage extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const PlayersPage(mode: 'christmas')));
+                      builder: (context) =>
+                          const AddQuestionPage(mode: 'christmas')));
             },
             child: const Text('Christmas',
                 style: TextStyle(

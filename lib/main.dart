@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:titanic/db/database.dart';
+import 'package:titanic/pages/questionPacks.dart';
 import 'pages/gamemode.dart';
 
 void main() {
@@ -12,7 +13,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       title: 'Titanic',
       theme: ThemeData(
@@ -50,8 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   backgroundColor: const Color(0xFFFCECC9),
                   minimumSize: const Size(263, 88)),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const GamemodePage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const GamemodePage()));
               },
               child: const Text('Choose gamemode',
                   style: TextStyle(
@@ -65,7 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 backgroundColor: const Color(0xFFFCECC9),
                 minimumSize: const Size(263, 88),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const QuestionPacksPage()));
+              },
               child: const Text('Questions',
                   style: TextStyle(
                       fontSize: 24,
