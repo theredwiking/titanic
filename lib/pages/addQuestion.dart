@@ -1,6 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:titanic/db/questions.dart';
-import 'package:titanic/pages/question.dart';
 
 class AddQuestionPage extends StatefulWidget {
   final String mode;
@@ -12,16 +13,24 @@ class AddQuestionPage extends StatefulWidget {
 
 class _State extends State<AddQuestionPage> {
   final String mode;
-  final List<String> customQuestions = [];
+  late List<Question> customQuestions = [];
   late final Questions pack;
   final TextEditingController questionCtl = TextEditingController();
   _State({required this.mode}) {
     pack = Questions(pack: mode);
+    _init();
+  }
+
+  Future _init() async {
+    customQuestions = await pack.customQuestions();
+    setState(() {});
   }
 
   Future _addQuestion(String question) async  {
-    await pack.insertQuestion(Question(question: question, custom: 1));
-    customQuestions.add(question);
+    Question newQuestion = Question(question: question, custom: 1);
+    await pack.insertQuestion(newQuestion);
+    customQuestions.add(newQuestion);
+    setState(() {});
   }
 
   @override
@@ -99,7 +108,7 @@ class _State extends State<AddQuestionPage> {
                       itemCount: customQuestions.length,
                       itemBuilder: (BuildContext ctxt, int index) {
                         return Center(
-                            child: Text(customQuestions[index],
+                            child: Text(customQuestions[index].toQuest(),
                                 style: const TextStyle(
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold,

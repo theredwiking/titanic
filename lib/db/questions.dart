@@ -50,4 +50,18 @@ class Questions {
         Question(question: question, custom: custom),
     ];
   }
+
+  Future<List<Question>> customQuestions() async {
+    final db = await database;
+
+    final List<Map<String, Object?>> questionMaps = await db.query(pack, where: 'custom = 1');
+
+    return [
+      for (final {
+      'question': question as String,
+      'custom': custom as int,
+      } in questionMaps)
+        Question(question: question, custom: custom),
+    ];
+  }
 }

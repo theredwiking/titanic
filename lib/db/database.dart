@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
+//TODO: Add an way to update database without losing custom questions
 class DB {
   late final Future<Database> database;
 

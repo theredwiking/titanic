@@ -115,8 +115,7 @@ class _State extends State<PlayersPage> {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            //TODO: Change harccode mode to dynamic
-                            QuestionPage(mode: 'party', players: players)));
+                            QuestionPage(mode: mode, players: players)));
               }
             },
             child: const Text('Complete',

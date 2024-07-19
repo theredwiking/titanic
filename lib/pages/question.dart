@@ -3,15 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:titanic/db/questions.dart';
 
 class QuestionPage extends StatefulWidget {
-  //TODO: Remove late, only for development purpose is it there
-  late final String mode;
-  late final List<String> players;
-  QuestionPage({super.key, required this.mode, required this.players}) {
-    if (players.isEmpty) {
-      players = ['1', '2'];
-      mode = 'party';
-    }
-  }
+  final String mode;
+  final List<String> players;
+  const QuestionPage({super.key, required this.mode, required this.players});
 
   @override
   State createState() => _State(mode: mode, players: players);

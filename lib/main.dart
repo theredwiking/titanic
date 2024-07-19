@@ -45,6 +45,8 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
+            Image.asset('assets/pictures/Branding.png'),
+            SizedBox(height: 100,),
             TextButton(
               style: TextButton.styleFrom(
                   backgroundColor: const Color(0xFFFCECC9),
@@ -93,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.black)),
             ),
             const SizedBox(
-              height: 150,
+              height: 250,
             ),
           ],
         ),
