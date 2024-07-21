@@ -26,15 +26,27 @@ class _State extends State<QuestionPage> {
     if (questions.length >= 2) {
       Random random = Random();
       int questIdx = random.nextInt(questions.length);
-      _question = questions[questIdx].toQuest();
+      _question = insertNames(questIdx);
       questions.removeAt(questIdx);
     } else if (questions.length == 1) {
-      _question = questions[0].toQuest();
+      _question = insertNames(0);
       questions.removeAt(0);
     } else {
       _question = 'No more questions, get an life';
     }
     setState(() {});
+  }
+
+  String insertNames(int questIdx) {
+    String temp = questions[0].toQuest();
+    for(int i=0; i < temp.length; i++) {
+      if (temp[i] == '&') {
+        Random random = Random();
+        String player = players[random.nextInt(players.length)];
+        temp = temp.replaceFirst(RegExp(r'&'), player);
+      }
+    }
+    return temp;
   }
 
   @override
