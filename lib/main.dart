@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:titanic/db/database.dart';
+import 'package:titanic/l10n/l10n.dart';
 import 'package:titanic/pages/question_packs.dart';
 import 'package:titanic/pages/settings.dart';
 import 'pages/gamemode.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import "package:flutter_localizations/flutter_localizations.dart";
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +24,14 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFF231651),
         useMaterial3: true,
       ),
+      supportedLocales: L10n.all,
+      locale: const Locale('en'),
+      localizationsDelegates:  const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate
+      ],
       home: const MyHomePage(),
     );
   }
@@ -44,7 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future _init() async {
     prefs = await SharedPreferences.getInstance();
-    print(prefs.getString('language'));
   }
 
   @override
@@ -72,8 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     MaterialPageRoute(
                         builder: (context) => const GamemodePage()));
               },
-              child: const Text('Choose gamemode',
-                  style: TextStyle(
+              child: Text(AppLocalizations.of(context)!.chooseModeBtn,
+                  style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.black)),
@@ -90,8 +100,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     MaterialPageRoute(
                         builder: (context) => const QuestionPacksPage()));
               },
-              child: const Text('Questions',
-                  style: TextStyle(
+              child: Text(AppLocalizations.of(context)!.questionsBtn,
+                  style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.black)),
@@ -108,8 +118,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     MaterialPageRoute(
                         builder: (context) => const SettingsPage()));
               },
-              child: const Text('Settings',
-                  style: TextStyle(
+              child: Text(AppLocalizations.of(context)!.settingsBtn,
+                  style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.black)),

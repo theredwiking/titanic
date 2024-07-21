@@ -1,0 +1,18 @@
+{
+    "language": "English",
+    "@language":{
+        "description": "The current langauge"
+    },
+    "chooseModeBtn": "Choose gamemode",
+    "@chooseModeBtn":{
+        "description": "Button for chosing gamemode"
+    },
+    "questionsBtn": "Questions",
+    "@questionsBtn":{
+        "description": "Button for accessing questionspacks"
+    },
+    "settingsBtn": "Settings",
+    "@settingsBtn": {
+        "description": "Button for accessing settingspage"
+    }
+}

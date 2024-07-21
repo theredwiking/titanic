@@ -37,7 +37,7 @@ class LanguagePage extends StatelessWidget {
               minimumSize: const Size(263, 45),
             ),
             onPressed: () async {
-              await prefs.setString('language', 'english');
+              await prefs.setString('language', 'en');
             },
             child: const Text('English',
                 style: TextStyle(
@@ -51,7 +51,7 @@ class LanguagePage extends StatelessWidget {
                 backgroundColor: const Color(0xFFFCECC9),
                 minimumSize: const Size(263, 45)),
             onPressed: () async {
-              await prefs.setString('language', 'danish');
+              await prefs.setString('language', 'da');
             },
             child: const Text('Dansk',
                 style: TextStyle(
