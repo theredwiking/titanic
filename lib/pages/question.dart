@@ -91,6 +91,7 @@ class _State extends State<QuestionPage> {
                   minimumSize: const Size(263, 45)),
               onPressed: () async {
                 if (!fetched) {
+                  await pack.init();
                   questions = await pack.packQuestions();
                   fetched = true;
                 }

@@ -1,5 +1,8 @@
+import 'dart:ffi';
+
 import 'package:titanic/db/database.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Question {
   final String question;
@@ -27,8 +30,14 @@ class Question {
 class Questions {
   final String pack;
   late final Future<Database> database;
-  Questions({required this.pack}) {
-    database = DB().connectDb('questions_english.db');
+  late final SharedPreferences prefs;
+  Questions({required this.pack});
+
+  Future init() async {
+    prefs = await SharedPreferences.getInstance();
+    String? dbName = 'questions_${prefs.getString('language')}.db';
+    dbName ??= '';
+    database = DB().connectDb(dbName);
   }
 
   Future<void> insertQuestion(Question question) async {

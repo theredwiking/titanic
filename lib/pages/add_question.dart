@@ -23,6 +23,7 @@ class _State extends State<AddQuestionPage> {
   }
 
   Future _init() async {
+    await pack.init();
     customQuestions = await pack.customQuestions();
     setState(() {});
   }
