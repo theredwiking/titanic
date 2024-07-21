@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:titanic/pages/add_question.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuestionPacksPage extends StatelessWidget {
   const QuestionPacksPage({super.key});
@@ -12,10 +13,10 @@ class QuestionPacksPage extends StatelessWidget {
           const SizedBox(
             height: 70,
           ),
-          const Align(
+          Align(
             alignment: Alignment.topCenter,
             child: Text(
-              'Questions packs',
+              AppLocalizations.of(context)!.questionsPackBanner,
               style: TextStyle(fontSize: 36, color: Color(0xFFFCB0B3)),
             ),
           ),
@@ -33,8 +34,8 @@ class QuestionPacksPage extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const AddQuestionPage(mode: 'party')));
             },
-            child: const Text('Party',
-                style: TextStyle(
+            child: Text(AppLocalizations.of(context)!.partyBtn,
+                style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.black)),
@@ -51,8 +52,8 @@ class QuestionPacksPage extends StatelessWidget {
                       builder: (context) =>
                           const AddQuestionPage(mode: 'birthday')));
             },
-            child: const Text('Birthday',
-                style: TextStyle(
+            child: Text(AppLocalizations.of(context)!.birthdayBtn,
+                style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.black)),
@@ -70,8 +71,8 @@ class QuestionPacksPage extends StatelessWidget {
                       builder: (context) =>
                           const AddQuestionPage(mode: 'christmas')));
             },
-            child: const Text('Christmas',
-                style: TextStyle(
+            child: Text(AppLocalizations.of(context)!.christmasBtn,
+                style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.black)),

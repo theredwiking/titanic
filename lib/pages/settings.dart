@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:titanic/pages/language.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -13,11 +14,11 @@ class SettingsPage extends StatelessWidget {
             const SizedBox(
               height: 60,
             ),
-            const Align(
+            Align(
               alignment: Alignment.topCenter,
               child: Text(
-                'Settings',
-                style: TextStyle(fontSize: 36, color: Color(0xFFFCB0B3)),
+                AppLocalizations.of(context)!.settingsBanner,
+                style: const TextStyle(fontSize: 36, color: Color(0xFFFCB0B3)),
               ),
             ),
             const SizedBox(
@@ -34,8 +35,8 @@ class SettingsPage extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => LanguagePage()));
               },
-              child: const Text('Language',
-                  style: TextStyle(
+              child: Text(AppLocalizations.of(context)!.languageBtn,
+                  style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.black)),

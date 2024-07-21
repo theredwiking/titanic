@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:titanic/pages/question.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 
 class PlayersPage extends StatefulWidget {
   final String mode;
@@ -34,16 +35,16 @@ class _State extends State<PlayersPage> {
           const SizedBox(
             height: 60,
           ),
-          const Align(
+          Align(
             alignment: Alignment.topCenter,
             child: Text(
-              'Players',
-              style: TextStyle(fontSize: 36, color: Color(0xFFFCB0B3)),
+              AppLocalizations.of(context)!.playersBanner,
+              style: const TextStyle(fontSize: 36, color: Color(0xFFFCB0B3)),
             ),
           ),
-          const Text(
-            'Max players: 10',
-            style: TextStyle(fontSize: 24, color: Colors.white),
+          Text(
+            AppLocalizations.of(context)!.maxPlayers,
+            style: const TextStyle(fontSize: 24, color: Colors.white),
           ),
           const SizedBox(
             height: 10,
@@ -58,7 +59,7 @@ class _State extends State<PlayersPage> {
                   builder: (BuildContext context) {
                     return AlertDialog(
                       scrollable: true,
-                      title: const Text('Player'),
+                      title: Text(AppLocalizations.of(context)!.playerDesc),
                       content: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Form(
@@ -66,9 +67,9 @@ class _State extends State<PlayersPage> {
                             children: <Widget>[
                               TextFormField(
                                 controller: nameCtl,
-                                decoration: const InputDecoration(
-                                  labelText: 'Name',
-                                  icon: Icon(Icons.account_box),
+                                decoration: InputDecoration(
+                                  labelText: AppLocalizations.of(context)!.playerName,
+                                  icon: const Icon(Icons.account_box),
                                 ),
                               ),
                             ],
@@ -88,8 +89,8 @@ class _State extends State<PlayersPage> {
                     );
                   });
             },
-            child: const Text('Add player',
-                style: TextStyle(
+            child: Text(AppLocalizations.of(context)!.addPlayerBtn,
+                style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.black)),
@@ -118,8 +119,8 @@ class _State extends State<PlayersPage> {
                             QuestionPage(mode: mode, players: players)));
               }
             },
-            child: const Text('Complete',
-                style: TextStyle(
+            child: Text(AppLocalizations.of(context)!.playerCompleteBtn,
+                style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.black)),

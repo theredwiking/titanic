@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LanguagePage extends StatelessWidget {
   //TODO: Find way to switch text between the different languages
@@ -21,11 +22,11 @@ class LanguagePage extends StatelessWidget {
           const SizedBox(
             height: 60,
           ),
-          const Align(
+          Align(
             alignment: Alignment.topCenter,
             child: Text(
-              'Choose language',
-              style: TextStyle(fontSize: 36, color: Color(0xFFFCB0B3)),
+              AppLocalizations.of(context)!.languageBanner,
+              style: const TextStyle(fontSize: 36, color: Color(0xFFFCB0B3)),
             ),
           ),
           const SizedBox(

@@ -14,5 +14,93 @@
     "settingsBtn": "Settings",
     "@settingsBtn": {
         "description": "Button for accessing settingspage"
+    },
+    "gamemodeBanner": "Which gamemode",
+    "@gamemodeBanner": {
+        "description": "Banner text at top"
+    },
+    "partyBtn": "Party",
+    "@partyBtn": {
+        "description": "Button for chosing party pack"
+    },
+    "birthdayBtn": "Birthday",
+    "@birthdayBtn": {
+        "description": "Button for chosing birthday pack"
+    },
+    "christmasBtn": "Christmas",
+    "@christmas": {
+        "description": "Button for chosing christmas pack"
+    },
+    "questionsPackBanner": "Questions packs",
+    "@questionsPackBanner": {
+        "description": "Banner text at top of question_pack"
+    },
+    "playersBanner": "Players",
+    "@playersBanner": {
+        "description": "Banner on top of players"
+    },
+    "maxPlayers": "Max players: 10",
+    "@maxPlayers": {
+        "description": "Telling max amount of players"
+    },
+    "addPlayerBtn": "Add Player",
+    "@addPlayerBtn": {
+        "description": "Button for adding player"
+    },
+    "playerDesc": "Player",
+    "@playerDesc": {
+        "description": "Text shown when pressing add player"
+    },
+    "playerName": "Name",
+    "@playerName": {
+        "description": "Text where name is input"
+    },
+    "playerAddBtn": "Add",
+    "@playerAddBtn": {
+        "description": "Button inside popup"
+    },
+    "playerCompleteBtn": "Complete",
+    "@playerCompleteBtn": {
+        "description": "Button pressed when done adding players"
+    },
+    "questionBanner": "Question",
+    "@questionBanner": {
+        "description": "Banner on question page"
+    },
+    "nextQuestionBtn": "Next",
+    "@nextQuestionBtn": {
+        "description": "Button for showing next question"
+    },
+    "startText": "To start click next",
+    "@startText": {
+        "description": "Text showing when first open question page"
+    },
+    "endText": "No more questions, get an life",
+    "@endText": {
+        "description": "Text showen when no more questions is back"
+    },
+    "settingsBanner": "Settings",
+    "@settingsBanner": {
+        "description": "Banner on settings page"
+    },
+    "languageBtn": "Language",
+    "@languageBtn": {
+        "description": "Button for accessing language page"
+    },
+    "languageBanner": "Choose language",
+    "@languageBanner": {
+        "description": "Banner on language page"
+    },
+    "addQuestionBtn": "Add question",
+    "@addQuestionBtn": {
+        "description": "Button for adding question"
+    },
+    "customBanner": "Custom",
+    "@customBanner": {
+        "description": "Banner on adding question popup"
+    },
+    "questionAddText": "Question",
+    "@questionAddText": {
+        "description": "Text on question input"
     }
 }

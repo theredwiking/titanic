@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:titanic/db/questions.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddQuestionPage extends StatefulWidget {
   final String mode;
@@ -48,11 +49,11 @@ class _State extends State<AddQuestionPage> {
               const SizedBox(
                 height: 60,
               ),
-              const Align(
+              Align(
                 alignment: Alignment.topCenter,
                 child: Text(
-                  'Custom questions',
-                  style: TextStyle(fontSize: 36, color: Color(0xFFFCB0B3)),
+                  AppLocalizations.of(context)!.questionsPackBanner,
+                  style: const TextStyle(fontSize: 36, color: Color(0xFFFCB0B3)),
                 ),
               ),
               const SizedBox(
@@ -68,7 +69,7 @@ class _State extends State<AddQuestionPage> {
                       builder: (BuildContext context) {
                         return AlertDialog(
                           scrollable: true,
-                          title: const Text('Custom'),
+                          title: Text(AppLocalizations.of(context)!.customBanner),
                           content: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Form(
@@ -76,8 +77,8 @@ class _State extends State<AddQuestionPage> {
                                 children: <Widget>[
                                   TextFormField(
                                     controller: questionCtl,
-                                    decoration: const InputDecoration(
-                                      labelText: 'Question',
+                                    decoration: InputDecoration(
+                                      labelText: AppLocalizations.of(context)!.questionAddText,
                                     ),
                                   ),
                                 ],
@@ -86,7 +87,7 @@ class _State extends State<AddQuestionPage> {
                           ),
                           actions: [
                             ElevatedButton(
-                                child: const Text("Add"),
+                                child: Text(AppLocalizations.of(context)!.playerAddBtn),
                                 onPressed: () async {
                                   await _addQuestion(questionCtl.text);
                                   questionCtl.clear();
@@ -97,8 +98,8 @@ class _State extends State<AddQuestionPage> {
                         );
                       });
                 },
-                child: const Text('Add question',
-                    style: TextStyle(
+                child: Text(AppLocalizations.of(context)!.addQuestionBtn,
+                    style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.black)),

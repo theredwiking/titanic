@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:titanic/db/questions.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuestionPage extends StatefulWidget {
   final String mode;
@@ -20,7 +21,7 @@ class _State extends State<QuestionPage> {
   _State({required this.mode, required this.players}) {
     pack = Questions(pack: mode);
   }
-  late String _question = 'To start click next';
+  late String _question = AppLocalizations.of(context)!.startText;
 
   void selectQuestion() {
     if (questions.length >= 2) {
@@ -32,7 +33,7 @@ class _State extends State<QuestionPage> {
       _question = insertNames(0);
       questions.removeAt(0);
     } else {
-      _question = 'No more questions, get an life';
+      _question = AppLocalizations.of(context)!.endText;
     }
     setState(() {});
   }
@@ -58,13 +59,13 @@ class _State extends State<QuestionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(children: <Widget>[
-      const Align(
+          Align(
           alignment: Alignment.topCenter,
           child: Padding(
             padding: EdgeInsets.only(top: 40),
             child: Text(
-              'Question',
-              style: TextStyle(fontSize: 36, color: Color(0xFFFCB0B3)),
+              AppLocalizations.of(context)!.questionBanner,
+              style: const TextStyle(fontSize: 36, color: Color(0xFFFCB0B3)),
             ),
           )),
           Align(
@@ -95,8 +96,8 @@ class _State extends State<QuestionPage> {
                 }
                 selectQuestion();
               },
-              child: const Text('Next',
-                  style: TextStyle(
+              child: Text(AppLocalizations.of(context)!.nextQuestionBtn,
+                  style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.black)),

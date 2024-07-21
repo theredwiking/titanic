@@ -9,11 +9,16 @@ import "package:flutter_localizations/flutter_localizations.dart";
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences.getInstance().then((instance) {
+    String? lang = instance.getString('language');
+    runApp(MyApp(lang: lang,));
+  });
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String? lang;
+  const MyApp({super.key, required this.lang});
 
   // This widget is the root of your application.
   @override
@@ -25,7 +30,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       supportedLocales: L10n.all,
-      locale: const Locale('en'),
+      locale: Locale(lang!),
       localizationsDelegates:  const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -71,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             Image.asset('assets/pictures/Branding.png'),
-            SizedBox(height: 100,),
+            const SizedBox(height: 100,),
             TextButton(
               style: TextButton.styleFrom(
                   backgroundColor: const Color(0xFFFCECC9),
