@@ -12,6 +12,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences.getInstance().then((instance) {
     String? lang = instance.getString('language');
+    lang ??= 'en';
     runApp(MyApp(lang: lang,));
   });
 }
@@ -75,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            Image.asset('assets/pictures/Branding.png'),
+            Image.asset('assets/pictures/branding_${AppLocalizations.of(context)!.localeName}.png'),
             const SizedBox(height: 100,),
             TextButton(
               style: TextButton.styleFrom(
