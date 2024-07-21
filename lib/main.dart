@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:titanic/db/database.dart';
-import 'package:titanic/pages/questionPacks.dart';
+import 'package:titanic/pages/question_packs.dart';
+import 'package:titanic/pages/settings.dart';
 import 'pages/gamemode.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,6 +34,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late final SharedPreferences prefs;
+
+  @override
+  void initState() {
+    super.initState();
+    _init();
+  }
+
+  Future _init() async {
+    prefs = await SharedPreferences.getInstance();
+    print(prefs.getString('language'));
+  }
+
   @override
   Widget build(BuildContext context) {
     DB database = DB();
@@ -87,7 +102,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 backgroundColor: const Color(0xFFFCECC9),
                 minimumSize: const Size(263, 88),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingsPage()));
+              },
               child: const Text('Settings',
                   style: TextStyle(
                       fontSize: 24,

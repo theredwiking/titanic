@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:titanic/pages/addQuestion.dart';
+import 'package:titanic/pages/add_question.dart';
 
 class QuestionPacksPage extends StatelessWidget {
   const QuestionPacksPage({super.key});
