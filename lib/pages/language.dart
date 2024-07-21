@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LanguagePage extends StatelessWidget {
-  //TODO: Find wway to switch text between the different languages
+  //TODO: Find way to switch text between the different languages
   late final SharedPreferences prefs;
   LanguagePage({super.key}) {
     _init();
